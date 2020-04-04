@@ -1,7 +1,7 @@
 baseURL = "https://nop-sec.github.io/Blog/"
 languageCode = "en-uk"
 title = "Nop Sec"
-theme = "hugo-notepadium"
+theme = "notepadium"
 
 enableRobotsTXT = true
 

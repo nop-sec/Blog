@@ -52,7 +52,7 @@ showTags = true             # /tags/
 
 [[params.nav.custom]]
 title = "About"
-url = "/about"
+url = "/about/"
 
 [[params.nav.custom]]
 title = "GitHub"

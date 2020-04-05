@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.62.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Painting With Hex&nbsp;&ndash;&nbsp;Nop Sec</title><link rel="stylesheet" href="/css/core.min.b8b934490d360bb80f8b1ec80945f1585b02101b29cad55d1f67fcd65c567ebc5a7fb8b63e9ba933538f4a2f36490a02.css" integrity="sha384-uLk0SQ02C7gPix7ICUXxWFsCEBspytVdH2f81lxWfrxaf7i2PpupM1OPSi82SQoC"><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Nop Sec</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://github.com/nop-sec"target="_blank">GitHub</a></nav></div></span></div><div class="site slogan"><span class="title">Ramblings of a security professional</span></div></section><div id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Painting With Hex</h1><p class="article date">Sunday, April 5, 2020</p></section><article class="article markdown-body"><h1 id="background">Background</h1>
+<p>As some of you may already know there is an old breakout technique where by creating a BMP in paint with particular colours can be used to dictate ascii commands into a file.</p>
+<p><strong>Example:</strong></p>
+<ol>
+<li>Open MSPaint.exe and create a canvas 5px by 1px and zoom all the way in.</li>
+<li>Now using the colour picker. Set the Red, Green, Blue values of pixels from left to right to be:
+<ol>
+<li>(10,0,0)</li>
+<li>(13,10,13)</li>
+<li>(100,109,99)</li>
+<li>(120,101,46)</li>
+<li>(0,0,101)</li>
+</ol>
+</li>
+<li>Save the image as a 24-bit Bitmap (<em>.bmp,</em>.dib)</li>
+<li>Change the extension from .bmp to .bat and run.</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="/img/Paint3.png"><img  src="/img/Paint3.png"
+        alt="MSPaint"/></a></p>
+<p>As you can see in the image above. We've created the 5 required pixels, saved as a BMP and converted to a Bat file and when it's executed it's opened up and run cmd.exe so all good!</p>
+<h2 id="now-what-on-earth-is-going-on-here">Now what on earth is going on here?</h2>
+<p>When you convert the RGB colours above to Hex you get the following:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000</li>
+<li>(13,10,13) -&gt; 0x0D0A0D</li>
+<li>(100,109,99) -&gt; 0x646D63</li>
+<li>(120,101,46) -&gt; 0x78652E</li>
+<li>(0,0,101) -&gt; 0x000065</li>
+</ol>
+<p>Now the first pixels (6 bytes) are used to setup the BMP image after that we get into the meat of the command. First off is <code>0x646D63</code> if we convert this to ascii we get <code>dmc</code> which unless your a hiphop fan isn't quite right. So it's in little endian format.</p>
+<p>So if we go an convert the rest of the pixels we should get the following:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000</li>
+<li>(13,10,13) -&gt; 0x0D0A0D</li>
+<li>(100,109,99) -&gt; 0x646D63 -&gt; dmc</li>
+<li>(120,101,46) -&gt; 0x78652E -&gt; xe.</li>
+<li>(0,0,101) -&gt; 0x000065 -&gt; e</li>
+</ol>
+<p>Note the padding required on the last pixel as it has to be 3 bytes long.</p>
+<h1 id="what-else-can-we-paint">What else can we paint?</h1>
+<p>So the technique above is well documented, and i've used it a few times however, it is getting a bit long in the tooth. Nether the less on a breakout not too long ago we came across a reason to use it, unfortunately cmd.exe was disabled so why not see if we can run something else? Like Powershell?</p>
+<p>So as we know from above the command needs to be broken down into 3 byte chunks, turned into little endian, padded and converted to hex then RGB.</p>
+<p>So powershell.exe would be:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000 -&gt; (10,0,0)</li>
+<li>(13,10,13) -&gt; 0x0D0A0D -&gt; (13,10,13)</li>
+<li>pow -&gt; wop -&gt; 0x776f70 -&gt; (119,111,112)</li>
+<li>ers -&gt; sre -&gt; 737265 -&gt; (115,114,101)</li>
+<li>hel -&gt; leh -&gt; 6c6568 -&gt; (108,101,104)</li>
+<li>l.e -&gt; e.l -&gt; 652e6c -&gt; (101,46,108)</li>
+<li>xe -&gt; ex -&gt; 006578 -&gt; (0,101,120)</li>
+</ol>
+<p>So lets create a new BMP that is 7px by 1px and repeat.</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="/img/Powershell.png"><img  src="/img/Powershell.png"
+        alt="Powershell.exe"/></a></p>
+<h1 id="lets-automate-this">Lets automate this</h1>
+<p>As much as I love doing these things manually I find it far better to automate them. So knocked together a quick python script that will allow you to specify any command and it will generate the required RGB codes for you. (Still got to create that image yourself though!)</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="/img/BMP_Execute.png"><img  src="/img/BMP_Execute.png"
+        alt="BMP_Execute"/></a></p>
+<p>The tool can be found here <a href="https://github.com/nop-sec/BMP-Execute"target="_blank">BMP_Execute</a>, Happy painting!</p>
+</article></div><section class="article navigation"><p><a class="link" href="/posts/jboss_cracker/"><span class="li">&rarr;</span>Cracking JBoss Passwords</a></p></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">Nop Sec</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section></div>
+</body>
+
+</html>

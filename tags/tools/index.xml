@@ -6,10 +6,22 @@
     <description>Recent content in Tools on Nop Sec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 04 Apr 2020 10:28:52 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2020 17:04:07 +0100</lastBuildDate>
     
         <atom:link href="/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Painting With Hex</title>
+      <link>/posts/paintingwithhex/</link>
+      <pubDate>Sun, 05 Apr 2020 17:04:07 +0100</pubDate>
+      
+      <guid>/posts/paintingwithhex/</guid>
+      <description>Background As some of you may already know there is an old breakout technique where by creating a BMP in paint with particular colours can be used to dictate ascii commands into a file.
+Example:
+ Open MSPaint.exe and create a canvas 5px by 1px and zoom all the way in. Now using the colour picker. Set the Red, Green, Blue values of pixels from left to right to be:  (10,0,0) (13,10,13) (100,109,99) (120,101,46) (0,0,101)   Save the image as a 24-bit Bitmap (.</description>
+      
+    </item>
     
     <item>
       <title>Cracking JBoss Passwords</title>

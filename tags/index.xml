@@ -6,10 +6,30 @@
     <description>Recent content in Tags on Nop Sec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 04 Apr 2020 10:28:52 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2020 17:04:07 +0100</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Breakout</title>
+      <link>/tags/breakout/</link>
+      <pubDate>Sun, 05 Apr 2020 17:04:07 +0100</pubDate>
+      
+      <guid>/tags/breakout/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Sun, 05 Apr 2020 17:04:07 +0100</pubDate>
+      
+      <guid>/tags/tools/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Cracking</title>
@@ -27,16 +47,6 @@
       <pubDate>Sat, 04 Apr 2020 10:28:52 +0100</pubDate>
       
       <guid>/tags/passwords/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Tools</title>
-      <link>/tags/tools/</link>
-      <pubDate>Sat, 04 Apr 2020 10:28:52 +0100</pubDate>
-      
-      <guid>/tags/tools/</guid>
       <description></description>
       
     </item>

@@ -1,4 +1,4 @@
-baseURL = "https://nop-sec.github.io/Blog/"
+baseURL = "https://nop-sec.com/"
 languageCode = "en-uk"
 title = "Nop Sec"
 theme = "notepadium"

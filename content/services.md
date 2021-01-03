@@ -1,7 +1,7 @@
 ---
 title: "Services"
 date: 2021-01-03T13:11:44Z
-draft: true
+draft: false
 ---
 
 After years of working for large multi national corporations providing services to corporate, government and military services I've decided to strike out on my own.

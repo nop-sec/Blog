@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Nop Sec</title>
+    <title>Nop Sec Consulting Ltd</title>
     <link>/</link>
-    <description>Recent content on Nop Sec</description>
+    <description>Recent content on Nop Sec Consulting Ltd</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Sun, 05 Apr 2020 17:04:07 +0100</lastBuildDate>
@@ -27,9 +27,8 @@
       <pubDate>Sat, 04 Apr 2020 10:15:25 +0100</pubDate>
       
       <guid>/about/</guid>
-      <description>About Me I&#39;m a penetration testers with over 5 years experience in leading advanced infrastructure assessments against a wide range of targets from commercial through to satalite systems and naval assets. My specialisms are infrastructure testing, exploit development, red team operations and industrial control systems.
-This blog is to share tips, tools and information that can help others in the community.
-Certifications  Crest Certified Tester (Infrastructure) Tiger Scheme Senior Security Tester (SST) Cyber Scheme Team Memeber (CSTM) Offensive Security Certified Professional (OSCP)  Training Undertaken  Corelan Advanced Exploit Development (Brucon 2019) Corelan Exploit Development Bootcamp (Brucon Spring 2019) Software Defined Networking in Telecoms (Wray Castle 2019) 4G / LTE Telecoms (Wray Castle 2019) Assessing and Exploiting Industrial Control Systems (Brucon 2018)  Upcoming Training  Dark Side Operations 1 &amp;amp; 2 with Silent Break Security Offensive Security Certified Expert (OSCE)  </description>
+      <description>About Me I&#39;m a security professional specialising in penetration testing. I have a BSc Computer Forensics and Security and have worked for a number of large consultancies including BlackBerry Ltd and CGI UK Ltd. I&#39;ve led engagements for large government departments through to satellite control systems and even on one occasion an aircraft carrier.
+Due to the varied work I&#39;ve always had the need to learn new skills from exploit development through to architecture review.</description>
       
     </item>
     

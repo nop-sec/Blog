@@ -1,6 +1,6 @@
 baseURL = "https://nop-sec.com/"
 languageCode = "en-uk"
-title = "Nop Sec"
+title = "Nop Sec Consulting Ltd"
 theme = "notepadium"
 
 enableRobotsTXT = true
@@ -53,6 +53,10 @@ showTags = true             # /tags/
 [[params.nav.custom]]
 title = "About"
 url = "/about/"
+
+[[params.nav.custom]]
+title = "Services"
+url = "/services/"
 
 [[params.nav.custom]]
 title = "GitHub"

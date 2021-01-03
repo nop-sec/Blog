@@ -6,10 +6,20 @@
     <description>Recent content on Nop Sec Consulting Ltd</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sun, 05 Apr 2020 17:04:07 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jan 2021 13:11:44 +0000</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Services</title>
+      <link>/services/</link>
+      <pubDate>Sun, 03 Jan 2021 13:11:44 +0000</pubDate>
+      
+      <guid>/services/</guid>
+      <description>After years of working for large multi national corporations providing services to corporate, government and military services I&#39;ve decided to strike out on my own. If your interested in acquiring the skills of a seasoned security professional then please don&#39;t hesitate to contact me. I can provide a range of services and am more than happy to have a chat whether you&#39;ve had a recent penetration test and want a second opinion or expert advise or would like someone to help train your staff.</description>
+      
+    </item>
     
     <item>
       <title>Posts</title>

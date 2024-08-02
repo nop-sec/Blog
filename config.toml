@@ -1,7 +1,7 @@
 baseURL = "https://nop-sec.com/"
 languageCode = "en-uk"
 title = "Nop Sec Consulting Ltd"
-theme = "notepadium"
+theme = "hugo-notepadium"
 
 enableRobotsTXT = true
 

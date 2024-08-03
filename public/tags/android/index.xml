@@ -1,0 +1,187 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Nop Sec Consulting Ltd</title>
+    <link>http://localhost:1313/tags/android/</link>
+    <description>Recent content in Android on Nop Sec Consulting Ltd</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 03 Aug 2024 09:54:23 +0700</lastBuildDate>
+    
+        <atom:link href="http://localhost:1313/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mobile Hacking Lab - Strings</title>
+      <link>http://localhost:1313/posts/mhl-strings/</link>
+      <pubDate>Sat, 03 Aug 2024 09:54:23 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/mhl-strings/</guid>
+      <description>&lt;h1 id=&#34;mobile-hacking-lab-introduction&#34;&gt;Mobile Hacking Lab Introduction&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mobilehackinglab.com/course/lab-strings&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Mobile Hacking Lab&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;workthough-spoilers&#34;&gt;Workthough (Spoilers)&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Services</title>
+      <link>http://localhost:1313/services/</link>
+      <pubDate>Sun, 03 Jan 2021 13:11:44 +0000</pubDate>
+      
+      <guid>http://localhost:1313/services/</guid>
+      <description>&lt;p&gt;After years of working for large multi national corporations providing services to corporate, government and military services I&amp;rsquo;ve decided to strike out on my own.
+If your interested in acquiring the skills of a seasoned security professional then please don&amp;rsquo;t hesitate to contact me. I can provide a range of services and am more than happy to have a chat whether you&amp;rsquo;ve had a recent penetration test and want a second opinion or expert advise or would like someone to help train your staff.&lt;/p&gt;
+&lt;h2 id=&#34;penetration-testing&#34;&gt;Penetration Testing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Web Application&lt;/li&gt;
+&lt;li&gt;Internal Infrastructure&lt;/li&gt;
+&lt;li&gt;Thick Clients&lt;/li&gt;
+&lt;li&gt;Industrial Control System&lt;/li&gt;
+&lt;li&gt;Build Reviews and lock down Assessments&lt;/li&gt;
+&lt;li&gt;Source Code Reviews&lt;/li&gt;
+&lt;li&gt;Architecture Reviews&lt;/li&gt;
+&lt;li&gt;Security Advice&lt;/li&gt;
+&lt;li&gt;Reverse Engineering &amp;amp; Malware Analysis&lt;/li&gt;
+&lt;li&gt;Staff Training&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nop Sec Consulting Ltd is a registered company and can be found on Companies House and has professional indemnity insurance and public liability insurance in place.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Painting With Hex</title>
+      <link>http://localhost:1313/posts/paintingwithhex/</link>
+      <pubDate>Sun, 05 Apr 2020 17:04:07 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/paintingwithhex/</guid>
+      <description>&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;
+&lt;p&gt;As some of you may already know there is an old breakout technique where by creating a BMP in paint with particular colours can be used to dictate ascii commands into a file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open MSPaint.exe and create a canvas 5px by 1px and zoom all the way in.&lt;/li&gt;
+&lt;li&gt;Now using the colour picker. Set the Red, Green, Blue values of pixels from left to right to be:
+&lt;ol&gt;
+&lt;li&gt;(10,0,0)&lt;/li&gt;
+&lt;li&gt;(13,10,13)&lt;/li&gt;
+&lt;li&gt;(100,109,99)&lt;/li&gt;
+&lt;li&gt;(120,101,46)&lt;/li&gt;
+&lt;li&gt;(0,0,101)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Save the image as a 24-bit Bitmap (&lt;em&gt;.bmp,&lt;/em&gt;.dib)&lt;/li&gt;
+&lt;li&gt;Change the extension from .bmp to .bat and run.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img  src=&#34;http://localhost:1313/img/Paint3.png&#34;
+        alt=&#34;MSPaint&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;As you can see in the image above. We&amp;rsquo;ve created the 5 required pixels, saved as a BMP and converted to a Bat file and when it&amp;rsquo;s executed it&amp;rsquo;s opened up and run cmd.exe so all good!&lt;/p&gt;
+&lt;h2 id=&#34;now-what-on-earth-is-going-on-here&#34;&gt;Now what on earth is going on here?&lt;/h2&gt;
+&lt;p&gt;When you convert the RGB colours above to Hex you get the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(10,0,0) -&amp;gt; 0x0A0000&lt;/li&gt;
+&lt;li&gt;(13,10,13) -&amp;gt; 0x0D0A0D&lt;/li&gt;
+&lt;li&gt;(100,109,99) -&amp;gt; 0x646D63&lt;/li&gt;
+&lt;li&gt;(120,101,46) -&amp;gt; 0x78652E&lt;/li&gt;
+&lt;li&gt;(0,0,101) -&amp;gt; 0x000065&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now the first pixels (6 bytes) are used to setup the BMP image after that we get into the meat of the command. First off is &lt;code&gt;0x646D63&lt;/code&gt; if we convert this to ascii we get &lt;code&gt;dmc&lt;/code&gt; which unless your a hiphop fan isn&amp;rsquo;t quite right. So it&amp;rsquo;s in little endian format.&lt;/p&gt;
+&lt;p&gt;So if we go an convert the rest of the pixels we should get the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(10,0,0) -&amp;gt; 0x0A0000&lt;/li&gt;
+&lt;li&gt;(13,10,13) -&amp;gt; 0x0D0A0D&lt;/li&gt;
+&lt;li&gt;(100,109,99) -&amp;gt; 0x646D63 -&amp;gt; dmc&lt;/li&gt;
+&lt;li&gt;(120,101,46) -&amp;gt; 0x78652E -&amp;gt; xe.&lt;/li&gt;
+&lt;li&gt;(0,0,101) -&amp;gt; 0x000065 -&amp;gt; e&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note the padding required on the last pixel as it has to be 3 bytes long.&lt;/p&gt;
+&lt;h1 id=&#34;what-else-can-we-paint&#34;&gt;What else can we paint?&lt;/h1&gt;
+&lt;p&gt;So the technique above is well documented, and i&amp;rsquo;ve used it a few times however, it is getting a bit long in the tooth. Nether the less on a breakout not too long ago we came across a reason to use it, unfortunately cmd.exe was disabled so why not see if we can run something else? Like Powershell?&lt;/p&gt;
+&lt;p&gt;So as we know from above the command needs to be broken down into 3 byte chunks, turned into little endian, padded and converted to hex then RGB.&lt;/p&gt;
+&lt;p&gt;So powershell.exe would be:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(10,0,0) -&amp;gt; 0x0A0000 -&amp;gt; (10,0,0)&lt;/li&gt;
+&lt;li&gt;(13,10,13) -&amp;gt; 0x0D0A0D -&amp;gt; (13,10,13)&lt;/li&gt;
+&lt;li&gt;pow -&amp;gt; wop -&amp;gt; 0x776f70 -&amp;gt; (119,111,112)&lt;/li&gt;
+&lt;li&gt;ers -&amp;gt; sre -&amp;gt; 737265 -&amp;gt; (115,114,101)&lt;/li&gt;
+&lt;li&gt;hel -&amp;gt; leh -&amp;gt; 6c6568 -&amp;gt; (108,101,104)&lt;/li&gt;
+&lt;li&gt;l.e -&amp;gt; e.l -&amp;gt; 652e6c -&amp;gt; (101,46,108)&lt;/li&gt;
+&lt;li&gt;xe -&amp;gt; ex -&amp;gt; 006578 -&amp;gt; (0,101,120)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So lets create a new BMP that is 7px by 1px and repeat.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://localhost:1313/img/Powershell.png&#34;
+        alt=&#34;Powershell.exe&#34;/&gt;&lt;/p&gt;
+&lt;h1 id=&#34;lets-automate-this&#34;&gt;Lets automate this&lt;/h1&gt;
+&lt;p&gt;As much as I love doing these things manually I find it far better to automate them. So knocked together a quick python script that will allow you to specify any command and it will generate the required RGB codes for you. (Still got to create that image yourself though!)&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://localhost:1313/img/BMP_Execute.png&#34;
+        alt=&#34;BMP_Execute&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;The tool can be found here &lt;a href=&#34;https://github.com/nop-sec/BMP-Execute&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;BMP_Execute&lt;/a&gt;, Happy painting!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cracking JBoss Passwords</title>
+      <link>http://localhost:1313/posts/jboss_cracker/</link>
+      <pubDate>Sat, 04 Apr 2020 10:28:52 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/jboss_cracker/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-jboss-eap-67-passwords&#34;&gt;Introduction to Jboss EAP 6.7 Passwords&lt;/h1&gt;
+&lt;p&gt;Not too long ago I came across a Jboss Enterprise Application Platform (EAP) based application server. This is a Java based server used for building, deploying and hosting Java applications and Services. Having gained access to the server using another techniques I was performing some enumeration when I noted the presense of the application.&lt;/p&gt;
+&lt;p&gt;A bit of research showed me that access to the web portal and command line is controlled by one of two files depending on whether the server is running in a standalone mode or domain.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;EAP_HOME/standalone/configuration/mgmt-users.properties
+EAP_HOME/domain/configuration/mgmt-users.properties 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;New users are created using an included script &lt;em&gt;add-user.sh&lt;/em&gt; which takes three inputs. Username, Password and Realm (The Realm can be either ManagementRealm or ApplicationRealm depending on the level of access required). The script then generates a password hash that is added to the relevant properties file in the format of &lt;em&gt;user:hash&lt;/em&gt; . Analysis of the script showed that it was taking the three variables and creating an MD5 hash which is definitely not a secure method.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Username: test&lt;/li&gt;
+&lt;li&gt;Password: password&lt;/li&gt;
+&lt;li&gt;Realm: ManagementRealm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is formatted as &lt;code&gt;test:ManagementRealm:password&lt;/code&gt; and a md5 sum of the resulting string is created as a password hash &lt;code&gt;87c1b764741f1b6d3cac6f95f3a2b226&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This can be performed in bash using OpenSSL to generate the hash.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo -n test:ManagementRealm:password | openssl dgst -md5 -hex
+(stdin)= 87c1b764741f1b6d3cac6f95f3a2b226
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;how-can-this-be-abused&#34;&gt;How can this be abused?&lt;/h1&gt;
+&lt;p&gt;Depending on the permissions of the mgmnt-users.properties file there are different attacks you can perform. If badly configured with world writeable privilileges you can just create your own user hash and add it to the properties file. Instant management access to the application.&lt;/p&gt;
+&lt;p&gt;More likely though is that you will find the file with world readable privileges but not writeable. The percludes adding your own user so you&amp;rsquo;ll need to crack the hashes. As we found out earlier the hash is made up of three components, this unfortunately counts out the use of Hashcat &amp;amp; John.&lt;/p&gt;
+&lt;p&gt;You can do this in bash using a couple of loops for the user and password dictionarys to create the hash and then compare against the hashes in the properties file. I wanted to create something a bit more long term so put together a small python that takes three inputs the mgmnt-users.properties file, a password dictionary and the realm. It follows the same method of checking for hash collisions to determine valid passwords and will run through the RockYou password list in about 5 minutes per user.&lt;/p&gt;
+&lt;p&gt;&lt;img  src=&#34;http://localhost:1313/img/jboss.png&#34;
+        alt=&#34;Jboss Cracking&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;A copy of the tool can be found here. &lt;a href=&#34;https://github.com/nop-sec/Jboss-EAP-Hash-Cracker&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Jboss Password Cracker&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sat, 04 Apr 2020 10:15:25 +0100</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m a security professional specialising in penetration testing. I have a BSc Computer Forensics and Security and have worked for a number of large consultancies including BlackBerry Ltd and CGI UK Ltd. I&amp;rsquo;ve led engagements for large government departments through to satellite control systems and even on one occasion an aircraft carrier.&lt;/p&gt;
+&lt;p&gt;Due to the varied work I&amp;rsquo;ve always had the need to learn new skills from exploit development through to architecture review. So one of the reasons I&amp;rsquo;ve set this site up is to share what I&amp;rsquo;ve learned and created with the industry.&lt;/p&gt;
+&lt;h3 id=&#34;certifications&#34;&gt;Certifications&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Crest Certified Tester (Infrastructure)&lt;/li&gt;
+&lt;li&gt;Tiger Scheme Senior Security Tester (SST)&lt;/li&gt;
+&lt;li&gt;Cyber Scheme Team Member (CSTM)&lt;/li&gt;
+&lt;li&gt;Offensive Security Certified Professional (OSCP)&lt;/li&gt;
+&lt;li&gt;BSc Computer Forensics &amp;amp; Security&lt;/li&gt;
+&lt;li&gt;Bond Solon Expert Witness Cross Examination &amp;amp; Report Writing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;training-undertaken&#34;&gt;Training Undertaken&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Silent Break Security - Dark Side Operations 1 - Malware Development (2020)&lt;/li&gt;
+&lt;li&gt;Silent Break Security - Dark Side Operations 2 - Adversary Simulation (2020)&lt;/li&gt;
+&lt;li&gt;Corelan Advanced Exploit Development (Brucon 2019)&lt;/li&gt;
+&lt;li&gt;Corelan Exploit Development Bootcamp (Brucon Spring 2019)&lt;/li&gt;
+&lt;li&gt;Software Defined Networking in Telecoms (Wray Castle 2019)&lt;/li&gt;
+&lt;li&gt;4G / LTE Telecoms (Wray Castle 2019)&lt;/li&gt;
+&lt;li&gt;Assessing and Exploiting Industrial Control Systems (Brucon 2018)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ongoing-training&#34;&gt;Ongoing Training&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Offensive Security Certified Expert (OSCE)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

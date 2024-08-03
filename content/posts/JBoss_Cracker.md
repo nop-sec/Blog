@@ -4,6 +4,7 @@ date: 2020-04-04T10:28:52+01:00
 draft: false
 tags: ["Cracking", "Tools", "Passwords"]
 categories: ["Tools"]
+imgs: ["/img/jbossLogo.png"]
 ---
 
 # Introduction to Jboss EAP 6.7 Passwords

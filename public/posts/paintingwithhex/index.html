@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8"><meta name="generator" content="Hugo 0.130.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Painting With Hex&nbsp;&ndash;&nbsp;Nop Sec Consulting Ltd</title><link rel="stylesheet" href="/css/core.min.c793941a2dfbeec1dec89bc471317fe527591cf88c0dc183fb393b86c4d6c14bedb2817d6c5c96c216e5866179a0ed6b.css" integrity="sha384-x5OUGi377sHeyJvEcTF/5SdZHPiMDcGD&#43;zk7hsTWwUvtsoF9bFyWwhblhmF5oO1r"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Painting With Hex" /><meta name="twitter:image" content="http://localhost:1313/posts/paintingwithhex//img/paintlogo.png" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Nop Sec Consulting Ltd</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a><a class="nav item" href="/services/">Services</a><a class="nav item" href="https://github%2ecom/nop-sec"target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></span></div><div class="site slogan"><span class="title">Ramblings of a security professional</span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Painting With Hex</h1><p class="article date">Sunday, April 5, 2020</p></section><article class="article markdown-body"><h1 id="background">Background</h1>
+<p>As some of you may already know there is an old breakout technique where by creating a BMP in paint with particular colours can be used to dictate ascii commands into a file.</p>
+<p><strong>Example:</strong></p>
+<ol>
+<li>Open MSPaint.exe and create a canvas 5px by 1px and zoom all the way in.</li>
+<li>Now using the colour picker. Set the Red, Green, Blue values of pixels from left to right to be:
+<ol>
+<li>(10,0,0)</li>
+<li>(13,10,13)</li>
+<li>(100,109,99)</li>
+<li>(120,101,46)</li>
+<li>(0,0,101)</li>
+</ol>
+</li>
+<li>Save the image as a 24-bit Bitmap (<em>.bmp,</em>.dib)</li>
+<li>Change the extension from .bmp to .bat and run.</li>
+</ol>
+<p><img  src="/img/Paint3.png"
+        alt="MSPaint"/></p>
+<p>As you can see in the image above. We&rsquo;ve created the 5 required pixels, saved as a BMP and converted to a Bat file and when it&rsquo;s executed it&rsquo;s opened up and run cmd.exe so all good!</p>
+<h2 id="now-what-on-earth-is-going-on-here">Now what on earth is going on here?</h2>
+<p>When you convert the RGB colours above to Hex you get the following:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000</li>
+<li>(13,10,13) -&gt; 0x0D0A0D</li>
+<li>(100,109,99) -&gt; 0x646D63</li>
+<li>(120,101,46) -&gt; 0x78652E</li>
+<li>(0,0,101) -&gt; 0x000065</li>
+</ol>
+<p>Now the first pixels (6 bytes) are used to setup the BMP image after that we get into the meat of the command. First off is <code>0x646D63</code> if we convert this to ascii we get <code>dmc</code> which unless your a hiphop fan isn&rsquo;t quite right. So it&rsquo;s in little endian format.</p>
+<p>So if we go an convert the rest of the pixels we should get the following:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000</li>
+<li>(13,10,13) -&gt; 0x0D0A0D</li>
+<li>(100,109,99) -&gt; 0x646D63 -&gt; dmc</li>
+<li>(120,101,46) -&gt; 0x78652E -&gt; xe.</li>
+<li>(0,0,101) -&gt; 0x000065 -&gt; e</li>
+</ol>
+<p>Note the padding required on the last pixel as it has to be 3 bytes long.</p>
+<h1 id="what-else-can-we-paint">What else can we paint?</h1>
+<p>So the technique above is well documented, and i&rsquo;ve used it a few times however, it is getting a bit long in the tooth. Nether the less on a breakout not too long ago we came across a reason to use it, unfortunately cmd.exe was disabled so why not see if we can run something else? Like Powershell?</p>
+<p>So as we know from above the command needs to be broken down into 3 byte chunks, turned into little endian, padded and converted to hex then RGB.</p>
+<p>So powershell.exe would be:</p>
+<ol>
+<li>(10,0,0) -&gt; 0x0A0000 -&gt; (10,0,0)</li>
+<li>(13,10,13) -&gt; 0x0D0A0D -&gt; (13,10,13)</li>
+<li>pow -&gt; wop -&gt; 0x776f70 -&gt; (119,111,112)</li>
+<li>ers -&gt; sre -&gt; 737265 -&gt; (115,114,101)</li>
+<li>hel -&gt; leh -&gt; 6c6568 -&gt; (108,101,104)</li>
+<li>l.e -&gt; e.l -&gt; 652e6c -&gt; (101,46,108)</li>
+<li>xe -&gt; ex -&gt; 006578 -&gt; (0,101,120)</li>
+</ol>
+<p>So lets create a new BMP that is 7px by 1px and repeat.</p>
+<p><img  src="/img/Powershell.png"
+        alt="Powershell.exe"/></p>
+<h1 id="lets-automate-this">Lets automate this</h1>
+<p>As much as I love doing these things manually I find it far better to automate them. So knocked together a quick python script that will allow you to specify any command and it will generate the required RGB codes for you. (Still got to create that image yourself though!)</p>
+<p><img  src="/img/BMP_Execute.png"
+        alt="BMP_Execute"/></p>
+<p>The tool can be found here <a href="https://github.com/nop-sec/BMP-Execute"target="_blank" rel="noopener noreferrer">BMP_Execute</a>, Happy painting!</p>
+</article><section class="article labels"><a class="category" href=/categories/tools/>Tools</a><a class="tag" href=/tags/breakout/>Breakout</a><a class="tag" href=/tags/tools/>Tools</a></section>
+</div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/posts/mhl-strings/"><span class="iconfont icon-article"></span>Mobile Hacking Lab - Strings</a></p><p><a class="link" href="/posts/jboss_cracker/"><span class="iconfont icon-article"></span>Cracking JBoss Passwords</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">Nop Sec Consulting Ltd</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section>
+  
+
+</body>
+
+</html>

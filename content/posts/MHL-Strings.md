@@ -228,7 +228,7 @@ Java.perform(function () {
 
 Start an instance of Strings in Frida CLI, startup frida-trace to see what is going on, then load the frida script to call Klow()
 
-![Start up Frida](/img/Strings-Frida-KLOW.png)
+![Start up Frida](/img/Strings-Frida-Klow.png)
 
 Check the trace and see if it has logged anything...
 

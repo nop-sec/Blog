@@ -171,7 +171,7 @@ After that two booleans are created, the first is true if the Action submitted i
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Start an instance of Strings in Frida CLI, startup frida-trace to see what is going on, then load the frida script to call Klow()&lt;/p&gt;
-&lt;p&gt;&lt;img  src=&#34;https://nop-sec.com/img/Strings-Frida-KLOW.png&#34;
+&lt;p&gt;&lt;img  src=&#34;https://nop-sec.com/img/Strings-Frida-Klow.png&#34;
         alt=&#34;Start up Frida&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Check the trace and see if it has logged anything&amp;hellip;&lt;/p&gt;
 &lt;p&gt;&lt;img  src=&#34;https://nop-sec.com/img/Strings-Frida-KLOW-Trace.png&#34;
